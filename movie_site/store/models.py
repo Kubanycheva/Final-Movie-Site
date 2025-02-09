@@ -79,12 +79,6 @@ class Movie(models.Model):
     def __str__(self):
         return self.movie_name
 
-    def get_average_rating(self):
-        ratings = self.ratings.all()
-        if ratings.exists():
-            return round(sum(rating.stars for rating in ratings) / ratings.count(), 1)
-        return 0
-
 
 class MovieLanguages(models.Model):
     language = models.CharField(max_length=16)
